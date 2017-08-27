@@ -12,7 +12,6 @@ public class CoinCount {
 
 	public CoinCount() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	public int getCount() {

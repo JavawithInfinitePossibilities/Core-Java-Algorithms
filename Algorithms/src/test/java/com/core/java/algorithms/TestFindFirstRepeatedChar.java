@@ -18,7 +18,12 @@ public class TestFindFirstRepeatedChar {
 	public void testFindFirstChar() {
 		value = value.replaceAll(" ", "");
 		FindTheFirstRepeatedChar repeatedChar = new FindTheFirstRepeatedChar();
-		Thread thread1 = new Thread(() -> {
+		long start = System.currentTimeMillis();
+		repeatedChar.mapToFindRepeatationByDoublePointer(value);
+		long end = System.currentTimeMillis();
+		System.out.println("Time taken by mapToFindRepeatationByDoublePointer :" + (end - start));
+		
+		/*Thread thread1 = new Thread(() -> {
 			long start = System.currentTimeMillis();
 			repeatedChar.doubleIteration(value);
 			long end = System.currentTimeMillis();
@@ -30,14 +35,21 @@ public class TestFindFirstRepeatedChar {
 			long end = System.currentTimeMillis();
 			System.out.println("Time taken by mapToFindRepeatation :" + (end - start));
 		});
+		Thread thread3 = new Thread(() -> {
+			long start = System.currentTimeMillis();
+			repeatedChar.mapToFindRepeatationByDoublePointer(value);
+			long end = System.currentTimeMillis();
+			System.out.println("Time taken by mapToFindRepeatationByDoublePointer :" + (end - start));
+		});
 		thread1.start();
 		thread2.start();
+		thread3.start();
 		try {
 			thread1.join();
 			thread2.join();
+			thread3.join();
 		} catch (InterruptedException e) {
 			e.printStackTrace();
-		}
-
+		}*/
 	}
 }

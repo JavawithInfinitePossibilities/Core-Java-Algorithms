@@ -41,4 +41,26 @@ public class FindTheFirstRepeatedChar {
 			}
 		}
 	}
+
+	public void mapToFindRepeatationByDoublePointer(String value) {
+		Map<Character, Integer> repeatation = new LinkedHashMap<Character, Integer>();
+		for (int i = 0, j=value.length()-1; i <j || i==j; i++,j--) {
+			if (repeatation.containsKey(value.charAt(i))) {
+				repeatation.put(value.charAt(i), repeatation.get(value.charAt(i)) + 1);
+			} else {
+				repeatation.put(value.charAt(i), 1);
+			}
+			if (repeatation.containsKey(value.charAt(j))) {
+				repeatation.put(value.charAt(j), repeatation.get(value.charAt(j)) + 1);
+			} else {
+				repeatation.put(value.charAt(j), 1);
+			}
+		}
+		for (Entry<Character, Integer> element : repeatation.entrySet()) {
+			if (element.getValue() > 1) {
+				System.out.println("The first repeated value:" + element.getKey());
+				break;
+			}
+		}
+	}
 }

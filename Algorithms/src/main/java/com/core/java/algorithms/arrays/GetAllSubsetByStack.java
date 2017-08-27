@@ -12,21 +12,21 @@ import java.util.Stack;
  *
  */
 public class GetAllSubsetByStack {
-	private final int target_sum;
+	private final int TARGET_SUM;
 	private Stack<Integer> stack = new Stack<>();
 	private int sumInStack = 0;
 	public Set<String> value=new HashSet<>();
 
 	public GetAllSubsetByStack(int target_sum) {
-		this.target_sum = target_sum;
+		this.TARGET_SUM = target_sum;
 	}
 
 	public void populatedSubStack(int[] data, int fromIndex, int endIndex) {
-		if (sumInStack == target_sum) {
+		if (sumInStack == TARGET_SUM) {
 			print(stack);
 		}
 		for (int currentIndex = fromIndex; currentIndex <= endIndex; currentIndex++) {
-			if (sumInStack + data[currentIndex] <= target_sum) {
+			if (sumInStack + data[currentIndex] <= TARGET_SUM) {
 				stack.push(data[currentIndex]);
 				sumInStack += data[currentIndex];
 				populatedSubStack(data, currentIndex + 1, endIndex);
